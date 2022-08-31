@@ -1,0 +1,121 @@
+.editor-form > input,
+.editor-form > textarea {
+    width: 100%;
+    resize: none;
+}
+
+.editor-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.editor-form {
+    box-sizing: border-box;
+    padding: 2rem;
+}
+
+@media (min-aspect-ratio: 1/1) {
+    .editor-form {
+        min-width: 50rem;
+    }
+}
+
+.positivity-input {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 25px;
+    background: var(--secondary);
+    outline: none;
+    /* opacity: 0.7; */
+    -webkit-transition: 0.2s;
+    transition: opacity 0.2s;
+}
+
+.positivity-input:hover {
+    opacity: 1;
+}
+
+.positivity-input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: var(--primary);
+    cursor: pointer;
+}
+
+.emotion-checkbox {
+    display: none;
+}
+
+.emotion-label {
+    user-select: none;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+    font-size: 2rem;
+}
+
+:checked + .emotion-label {
+    opacity: 1;
+}
+
+.emotion-grid {
+    margin-top: 1rem;
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-aspect-ratio: 1/1) {
+    .emotion-grid {
+        min-width: 100%;
+    }
+}
+
+.emotion-checkbox-container {
+    flex: 1;
+    display: inline;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+    /* aspect-ratio: 1; */
+    /* height: 4rem; */
+}
+
+.editor-options {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.editor-entry {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    min-height: 2rem;
+}
+
+.editor-title {
+    font-weight: bold;
+    font-size: 2rem;
+    text-align: center;
+    /* text-decoration: underline; */
+}
+
+.editor-submit-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.editor-submit-container > button {
+    width: 100%;
+    max-width: 30rem;
+}

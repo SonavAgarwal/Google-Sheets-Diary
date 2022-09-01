@@ -10,6 +10,7 @@ import { Route, Routes, useNavigate } from "react-router-dom";
 import AuthPage from "./pages/AuthPage.jsx";
 import Home from "./pages/Home.jsx";
 import { createContext } from "react";
+import NewEntry from "./pages/NewEntry";
 
 export const TokenContext = createContext();
 
@@ -22,22 +23,6 @@ function App() {
             setGoogleApisReady(true);
         });
     }, []);
-
-    // useEffect(
-    //     function () {
-    //         console.log("sheet id found", sheetDiaryId);
-    //     },
-    //     [sheetDiaryId]
-    // );
-
-    // useEffect(
-    //     function () {
-    //         if (sheetDiaryId && token) {
-    //             // findge
-    //         }
-    //     },
-    //     [sheetDiaryId, token]
-    // );
 
     const navigate = useNavigate();
 
@@ -61,6 +46,8 @@ function App() {
             <Routes>
                 <Route path='/' element={<AuthPage setToken={setToken}></AuthPage>}></Route>
                 <Route path='/home' element={<Home></Home>}></Route>
+                <Route path='/new' element={<NewEntry></NewEntry>}></Route>
+                <Route path='/edit/:entryId' element={<NewEntry></NewEntry>} />
             </Routes>
         </TokenContext.Provider>
     );

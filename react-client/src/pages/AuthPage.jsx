@@ -1,5 +1,6 @@
 import { useGoogleLogin } from "@react-oauth/google";
 import React from "react";
+import "../styles/Auth.css";
 
 function AuthPage({ setToken }) {
     const login = useGoogleLogin({
@@ -10,12 +11,14 @@ function AuthPage({ setToken }) {
         scope: "https://www.googleapis.com/auth/drive.file",
     });
     return (
-        <div>
+        <div className='auth-button-container'>
+            <h1>Google Sheets Diary</h1>
             <button
+                className='button'
                 onClick={function () {
                     login();
                 }}>
-                Sign in
+                Sign in with Google
             </button>
         </div>
     );

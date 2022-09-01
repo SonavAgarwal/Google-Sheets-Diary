@@ -100,6 +100,7 @@
     font-size: 1.5rem;
     margin-top: 1rem;
     min-height: 2rem;
+    line-height: 2rem;
 }
 
 .editor-title {
@@ -113,6 +114,7 @@
     display: flex;
     justify-content: center;
     margin-top: 1rem;
+    gap: 1rem;
 }
 
 .editor-submit-container > button {

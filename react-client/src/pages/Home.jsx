@@ -1,14 +1,56 @@
 import React, { useEffect, useState } from "react";
 import { useContext } from "react";
 import { TokenContext } from "../App";
-import { createDiaryEntry, findSheet, getSheetValues, makeSheet } from "../sheets";
+import { findSheet, getSheetValues, getUserProfileData, makeSheet } from "../sheets";
 import { v4 as uuidv4 } from "uuid";
 import Editor from "../components/Editor";
+import { useNavigate } from "react-router-dom";
+import "../styles/Home.css";
+import EntryCard from "../components/EntryCard";
 
 function Home(props) {
     const token = useContext(TokenContext);
+    console.log(token);
+
+    const [userInfo, setUserInfo] = useState({});
+    const [entries, setEntries] = useState([]);
 
     const [sheetDiaryId, setSheetDiaryId] = useState();
+    console.log("sheetDiaryId:", sheetDiaryId);
+
+    const navigate = useNavigate();
+
+    useEffect(
+        function () {
+            async function getUserInfo() {
+                setUserInfo(await getUserProfileData(token));
+            }
+            if (token) {
+                getUserInfo();
+            }
+        },
+        [token]
+    );
+
+    useEffect(
+        function () {
+            async function getPreviousEntries() {
+                console.log("getSheetValues(sheetDiaryId, )");
+                let response = await getSheetValues(sheetDiaryId, "Sheet1!A:E");
+                if (response) {
+                    let previousEntries = response.result.values;
+                    previousEntries.shift();
+                    previousEntries = previousEntries.sort((a, b) => new Date(b[1]) - new Date(a[1]));
+                    setEntries(previousEntries);
+                    console.log(previousEntries);
+                }
+            }
+            if (token && sheetDiaryId) {
+                getPreviousEntries();
+            }
+        },
+        [token, sheetDiaryId] // TODO Page doesnt update fetched entries after coming back from edit page etc
+    );
 
     useEffect(
         function () {
@@ -20,39 +62,30 @@ function Home(props) {
                 setSheetDiaryId(foundSheetId);
                 console.log(foundSheetId);
             }
-            if (gapi && token) {
+            console.log(!!gapi);
+            console.log(!!token);
+            console.log(!sheetDiaryId);
+            if (gapi && token && !sheetDiaryId) {
                 console.log("finding and setting");
                 findAndSetSheetId();
             }
         },
-        [token]
+        [token, sheetDiaryId]
     );
 
     return (
-        <div>
-            {/* <button
-                onClick={async function () {
-                    makeSheet();
-                }}>
-                make sheet
-            </button>
+        <div className='home'>
+            <h1>{userInfo.given_name}'s Diary</h1>
             <button
-                onClick={async function () {
-                    console.log(await getSheetValues(sheetDiaryId, "Sheet1"));
+                className='button'
+                onClick={function () {
+                    navigate("/new");
                 }}>
-                read sheet
-            </button> */}
-
-            <Editor spreadsheetId={sheetDiaryId}></Editor>
-            {/* <button
-                onClick={async function () {
-                    console.log(new Date().toLocaleDateString());
-                    createDiaryEntry(sheetDiaryId, [
-                        [new Date().toLocaleDateString(), "Going to Dogzone", "I ate some noodles", "Food, Trip, Friends", uuidv4()],
-                    ]);
-                }}>
-                add entry to sheet
-            </button> */}
+                New Entry
+            </button>
+            {entries.map((entry) => {
+                return <EntryCard entry={entry} key={entry[0]}></EntryCard>;
+            })}
         </div>
     );
 }

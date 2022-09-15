@@ -10,7 +10,6 @@ function NewEntry(props) {
     const token = useContext(TokenContext);
 
     const [sheetDiaryId, setSheetDiaryId] = useState();
-    console.log("sheetDiaryId:", sheetDiaryId);
 
     let { entryId } = useParams();
 
@@ -32,7 +31,6 @@ function NewEntry(props) {
 
     return (
         <div>
-            {entryId}
             <Editor spreadsheetId={sheetDiaryId} entryId={entryId}></Editor>
         </div>
     );

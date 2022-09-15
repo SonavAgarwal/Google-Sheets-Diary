@@ -1,7 +1,6 @@
 /* global gapi */
 
 import { useEffect, useState } from "react";
-import reactLogo from "./assets/react.svg";
 import "./App.css";
 import { useGoogleLogin } from "@react-oauth/google";
 import { gapi } from "gapi-script";
@@ -11,6 +10,8 @@ import AuthPage from "./pages/AuthPage.jsx";
 import Home from "./pages/Home.jsx";
 import { createContext } from "react";
 import NewEntry from "./pages/NewEntry";
+import DrawingPad from "./components/DrawingPad";
+import Search from "./pages/Search";
 
 export const TokenContext = createContext();
 
@@ -29,7 +30,7 @@ function App() {
     useEffect(
         function () {
             if (token) {
-                navigate("/home");
+                // navigate("/home");
             } else {
                 navigate("/");
             }
@@ -38,7 +39,7 @@ function App() {
     );
 
     if (!googleApisReady) {
-        return <div>loading</div>;
+        return <div></div>; // LOADING;
     }
 
     return (
@@ -48,6 +49,7 @@ function App() {
                 <Route path='/home' element={<Home></Home>}></Route>
                 <Route path='/new' element={<NewEntry></NewEntry>}></Route>
                 <Route path='/edit/:entryId' element={<NewEntry></NewEntry>} />
+                <Route path='/search' element={<Search></Search>}></Route>
             </Routes>
         </TokenContext.Provider>
     );

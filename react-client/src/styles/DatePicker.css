@@ -2,7 +2,10 @@
 .react-datepicker__month-text--keyboard-selected,
 .react-datepicker__quarter-text--keyboard-selected,
 .react-datepicker__year-text--keyboard-selected {
-    background-color: var(--primary);
+    background-color: transparent;
+    color: black;
+    outline: 3px solid var(--secondary);
+    box-sizing: border-box;
 }
 
 .react-datepicker__day--selected:hover,
@@ -17,7 +20,10 @@
 .react-datepicker__year-text--selected:hover,
 .react-datepicker__year-text--in-selecting-range:hover,
 .react-datepicker__year-text--in-range:hover {
-    background-color: var(--primary);
+    background-color: transparent;
+    color: black;
+    outline: 3px solid var(--secondary);
+    box-sizing: border-box;
 }
 
 .react-datepicker__day--selected,
@@ -32,7 +38,10 @@
 .react-datepicker__year-text--selected,
 .react-datepicker__year-text--in-selecting-range,
 .react-datepicker__year-text--in-range {
-    background-color: var(--primary);
+    background-color: transparent;
+    color: black;
+    outline: 3px solid var(--secondary);
+    box-sizing: border-box;
 }
 
 .react-datepicker,

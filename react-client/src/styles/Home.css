@@ -11,6 +11,7 @@
 .home > button {
     width: 100%;
     max-width: 30rem;
+    margin-bottom: 1rem;
 }
 
 .home > h1 {
@@ -18,4 +19,42 @@
     text-align: center;
     font-family: "Raleway", sans-serif;
     margin-bottom: 1rem;
+}
+
+.home input {
+    width: 100%;
+    max-width: 30rem;
+    /* transition: max-width 0.3s ease; */
+    margin-bottom: 1rem;
+}
+
+.home input:focus {
+    max-width: 50rem;
+}
+
+.home > form {
+    width: 100%;
+    justify-content: center;
+    display: flex;
+}
+
+.home-title-container {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    /* justify-content: center; */
+    align-items: center;
+    width: 100%;
+    max-width: 30rem;
+}
+.home-title-container > button {
+    justify-self: flex-end;
+}
+.home-title-container > h1 {
+    font-size: 2rem;
+    text-align: center;
+    font-family: "Raleway", sans-serif;
+    line-height: 2rem;
+    margin-bottom: 0rem;
+    text-align: left;
 }

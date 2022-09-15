@@ -1,0 +1,33 @@
+.search {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 2rem;
+}
+
+.search > form {
+    width: 100%;
+    justify-content: center;
+    display: flex;
+}
+
+.search input {
+    width: 100%;
+    max-width: 30rem;
+    /* transition: max-width 0.3s ease; */
+    margin-bottom: 1rem;
+}
+
+.search input:focus {
+    max-width: 50rem;
+}
+
+.search > h1 {
+    font-size: 2rem;
+    text-align: center;
+    font-family: "Raleway", sans-serif;
+    margin-bottom: 1rem;
+}

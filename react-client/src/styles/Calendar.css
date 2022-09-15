@@ -1,0 +1,15 @@
+.calendar-container {
+    width: 100%;
+    max-width: 30rem;
+    margin-bottom: 2rem;
+    border: 2px solid var(--secondary);
+    padding: 1rem;
+    box-sizing: border-box;
+    border-radius: 1rem;
+}
+
+.calendar-has-entry {
+    background-color: var(--primary);
+    border-radius: 5px;
+    color: white;
+}

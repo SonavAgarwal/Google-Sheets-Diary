@@ -12,7 +12,14 @@ function EntryCard({ entry }) {
                 <h1 className='entry-card-date'>{entry[1]}</h1>
                 {entry[3] && <h1 className='entry-card-emotion'>{entry[3]}</h1>}
             </div>
-            <p className='entry-card-entry'>{entry[4]}</p>
+            {/* <div className='entry-card-image-container'>
+                <img src={entry[5]} />
+            </div> */}
+            {/* TODO turn arrays into objects */}
+            <div>
+                <img src={entry[5]} />
+                <p className='entry-card-entry'>{entry[4]}</p>
+            </div>
             <div className='entry-card-actions-container'>
                 <button
                     onClick={function () {

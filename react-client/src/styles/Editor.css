@@ -61,7 +61,7 @@
 }
 
 .emotion-grid {
-    margin-top: 1rem;
+    /* margin-top: 1rem; */
     flex: 1;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -94,11 +94,13 @@
     flex-wrap: wrap;
     flex-direction: row;
     gap: 1rem;
+    margin-bottom: 1rem;
 }
 
 .editor-entry {
     font-size: 1.5rem;
     margin-top: 1rem;
+    margin-bottom: 1rem;
     min-height: 2rem;
     line-height: 2rem;
 }

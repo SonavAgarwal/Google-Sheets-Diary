@@ -44,3 +44,22 @@ textarea {
     background-color: var(--primary);
     border: 2px solid var(--primary);
 }
+
+.input {
+    border: 2px solid var(--secondary);
+    box-sizing: border-box;
+    background-color: transparent;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+    transition: background-color 0.3s ease, border 0.3s ease, max-width 0.3s ease;
+}
+
+.input:hover {
+    background-color: var(--secondary);
+}
+
+.input:active {
+    /* background-color: var(--secondary); */
+    /* border: 2px solid var(--prima ry); */
+}
